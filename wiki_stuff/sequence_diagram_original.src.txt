@@ -1,5 +1,0 @@
-PayPal->Our App: IPN
-Our App-->PayPal: 200
-Our App->PayPal: Acknowledge
-Note right of Our App: PayPal thinks about it
-PayPal-->Our App: Validation
