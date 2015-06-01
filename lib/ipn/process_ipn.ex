@@ -15,6 +15,10 @@ defmodule Ipn.ProcessIpn do
     :gproc.whereis_name({:n, :l, {:transfer, paypal_id}})
   end
 
+  defp extract_paypal_id(ipn) do
+    ipn
+  end
+
   defp via_tuple(paypal_id) do
     {:via, :gproc, {:n, :l, {:transfer, paypal_id}}}
   end
