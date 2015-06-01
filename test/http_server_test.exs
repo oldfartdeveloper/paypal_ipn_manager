@@ -26,6 +26,9 @@ defmodule HttpServerTest do
 
     assert {:ok, %HTTPoison.Response{body: "2013-12-19    Dentist", status_code: 200}} =
       HTTPoison.get("http://127.0.0.1:5454/entries?list=test&date=20131219")
+
+    assert {:ok, %HTTPoison.Response{body: "OK", status_code: 200}} =
+      HTTPoison.post("http://127.0.0.1:5454/payments/ipn?payment=555", "")
   end
 
 end
