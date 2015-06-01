@@ -40,12 +40,11 @@ defmodule Ipn.Web do
   end
 
   # The PayPal IPN calls here
-  post "/payments/ipn" do
-    conn
-    |> Plug.Conn.put_resp_content_type("text/plain")
-    |> Plug.Conn.assign(:response, "OK")
-    |> respond
-  end
+#  post "/payments/ipn" do
+#    conn
+#    |> Plug.Conn.assign(:response, "OK")
+#    |> Plug.Conn.send_resp(200, conn.assigns[:response])
+#  end
 
   # curl -d '' 'http://localhost:5454/add_entry?list=bob&date=20131219&title=Dentist'
   post "/add_entry" do
