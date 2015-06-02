@@ -1,4 +1,4 @@
-defmodule Ipn.PayPalAck do
+defmodule Ipn.Acknowledge do
   @moduledoc """
   Handle verifying that an IPN has come from PayPal by reflecting it back to PayPal
   which will respond whether it was the source of the IPN or not.

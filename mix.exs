@@ -33,7 +33,8 @@ defmodule Ipn.Mixfile do
       {:cowboy, "1.0.0"},
       {:plug, "~> 0.12.2"},
       {:meck, "~> 0.8.2"},
-      {:httpoison, "~> 0.6.2"}
+      {:httpoison, "~> 0.6.2"},
+      {:poolboy, "~> 1.5.1" }
     ]
   end
 end

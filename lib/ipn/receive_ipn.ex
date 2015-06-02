@@ -5,38 +5,22 @@ defmodule Ipn.ReceiveIpn do
   plug :dispatch
 
   def start_server do
+    Ipn.Delegate.start()
     Plug.Adapters.Cowboy.http(__MODULE__, nil, port: 5454)
   end
 
   # The PayPal IPN calls here
   post "/payments/ipn" do
     conn
-    |> Plug.Conn.fetch_query_params
-    |> add_entry
+    |> process_ipn
     |> respond
   end
 
-  defp add_entry(conn) do
-    conn.params["list"]
-    |> Ipn.Cache.server_process
-    |> Ipn.Server.add_entry(
-          %{
-            date: parse_date(conn.params["date"]),
-            title: conn.params["title"]
-          }
-        )
-
+  defp process_ipn(conn) do
+    conn.query_string
+    |> Ipn.Supervisor.handle
     Plug.Conn.assign(conn, :response, "OK")
   end
-
-
-  defp parse_date(
-    # Using pattern matching to extract parts from YYYYMMDD string
-    << year::binary-size(4), month::binary-size(2), day::binary-size(2) >>
-  ) do
-    {String.to_integer(year), String.to_integer(month), String.to_integer(day)}
-  end
-
 
   defp respond(conn) do
     conn
