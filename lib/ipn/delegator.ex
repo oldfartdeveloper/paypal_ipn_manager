@@ -1,4 +1,4 @@
-defmodule Ipn.Supervisor do
+defmodule Ipn.Delegator do
   use Application
 
   defp pool_name() do
@@ -6,6 +6,7 @@ defmodule Ipn.Supervisor do
   end
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
     poolboy_config = [
       {:name, {:local, pool_name()}},
       {:worker_module, Ipn.Worker},
@@ -19,13 +20,13 @@ defmodule Ipn.Supervisor do
 
     options = [
       strategy: :one_for_one,
-      name: Ipn.PoolSupervisor
+      name: Ipn.Supervisor
     ]
 
     Supervisor.start_link(children, options)
   end
 
-  def basic_pool(ipn) do
+  def handle(ipn) do
     delegate_ipn(ipn)
   end
 

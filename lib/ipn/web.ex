@@ -16,7 +16,7 @@ defmodule Ipn.Web do
   end
 
   defp process(conn) do
-    IPN.Supervisor.handle(conn.query_string)
+    Ipn.Delegator.handle(conn.query_string)
   end
 
   # A fake PayPal acknowledgement server.  Until we start talking to a real PayPal server.
