@@ -14,6 +14,7 @@ defmodule Ipn.Worker do
   end
 
   def handle_call(data, from, state) do
+    IO.puts("received '#{state}'")
     {:reply, [], state}
   end
 

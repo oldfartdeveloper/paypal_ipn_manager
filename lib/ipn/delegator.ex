@@ -28,6 +28,7 @@ defmodule Ipn.Delegator do
 
   def handle(ipn) do
     delegate_ipn(ipn)
+    :ok
   end
 
   def parallel_pool(range) do
