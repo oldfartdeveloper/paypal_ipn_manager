@@ -6,8 +6,8 @@ defmodule Ipn.PayPalAck do
   use HTTPoison.Base
 
   # Define a test URL until we actually develop a facility to manage the PayPal callback URLs:
-  @local_server = "http://127.0.0.1:5454"
-  @endpoint "#{@local_server}/paypal_ack"
+#  @local_server = "http://127.0.0.1:5454"
+#  @endpoint "#{@local_server}/paypal_ack"
 
   def format_ack(ipn) do
 
@@ -19,7 +19,7 @@ defmodule Ipn.PayPalAck do
   # * false if PayPal returns "INVALID"
   # Raise if anything else happens
   def ack(ipn) do
-    case
+    true
   end
 
 end

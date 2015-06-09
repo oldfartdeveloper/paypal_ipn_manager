@@ -19,4 +19,8 @@ defmodule Ipn.ProcessIpn do
     {:via, :gproc, {:n, :l, {:transfer, paypal_id}}}
   end
 
+  defp extract_paypal_id(ipn) do
+    'xxx'
+  end
+
 end
