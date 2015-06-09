@@ -5,6 +5,9 @@ defmodule Ipn.Acknowledge do
   """
   use HTTPoison.Base
 
+  # Define the PayPal acknowledge endpoint:
+  @paypal_service_url "xxx"
+
   # Define a test URL until we actually develop a facility to manage the PayPal callback URLs:
   @local_server "http://127.0.0.1:5454"
   @endpoint "#{@local_server}/paypal_ack"
