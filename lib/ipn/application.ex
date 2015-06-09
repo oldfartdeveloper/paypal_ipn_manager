@@ -1,8 +1,8 @@
 defmodule Ipn.Application do
   use Application
 
-  def start(_, _) do
-    response = Ipn.Supervisor.start_link
+  def start(_type, _args) do
+    response = Ipn.Delegator.start('foo', 'bar')
     Ipn.Web.start_server
     response
   end

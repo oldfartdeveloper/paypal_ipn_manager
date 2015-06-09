@@ -29,11 +29,14 @@ defmodule Ipn.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
+      {:earmark, "~> 0.1", only: :dev},
+      {:ex_doc, "~> 0.7", only: :dev},
       {:gproc, "0.3.1"},
       {:cowboy, "1.0.0"},
-      {:plug, "0.10.0"},
-      {:meck, "0.8.2"},
-      {:httpoison, "~> 0.6.2"}
+      {:plug, "~> 0.12.2"},
+      {:meck, "~> 0.8.2"},
+      {:httpoison, "~> 0.6.2"},
+      {:poolboy, "~> 1.5.1" }
     ]
   end
 end
